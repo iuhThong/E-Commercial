@@ -1,8 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
 import React from "react";
 import HomeScreen from "./screens/HomeScreen";
 import AccountScreen from "./screens/AccountScreen";
@@ -11,10 +9,11 @@ import InboxScreen from "./screens/InboxScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SearchScreen from "./screens/SearchScreen";
-import { Text } from "react-native-svg";
 import { Ionicons } from "@expo/vector-icons";
 import ElectronicScreen from "./screens/ElectronicScreen";
 import FreshfruitScreen from "./screens/FreshfruitScreen";
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
@@ -99,7 +98,7 @@ function HomeTabs() {
         name="Account"
         component={AccountScreen}
         options={{ headerShown: false }}
-        initialParams={{ selectedTab: "Account" }}
+        // initialParams={{ selectedTab: "Account" }}
       />
     </Tab.Navigator>
   );
