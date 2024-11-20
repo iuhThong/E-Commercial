@@ -1,12 +1,26 @@
-// Header.js
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = ({ name }) => {
+  const navigation = useNavigation();
+  const canGoBack = navigation.canGoBack();
+
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>{name}</Text>
+      {/* Mũi tên quay lại hiển thị khi có thể quay lại */}
+      {canGoBack && (
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.iconContainer}
+        >
+          <Ionicons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
+      )}
+      <Text style={[styles.title, !canGoBack && styles.titleNoGoBack]}>
+        {name}
+      </Text>
       <View style={styles.rightIcons}>
         <TouchableOpacity style={styles.iconContainer}>
           <Ionicons name="cart-outline" size={24} color="black" />
@@ -22,13 +36,19 @@ const Header = ({ name }) => {
 const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 16,
+    justifyContent: "space-between",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
+    flex: 1,
+    textAlign: "center", // Tiêu đề căn giữa khi có mũi tên quay lại
+  },
+  titleNoGoBack: {
+    textAlign: "left", // Tiêu đề căn trái khi không có mũi tên quay lại
+    paddingLeft: 16,
   },
   rightIcons: {
     flexDirection: "row",

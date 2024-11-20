@@ -55,7 +55,7 @@ const SearchBar = () => {
         <TextInput
           style={styles.searchInput}
           placeholder="Search for product"
-          placeholderTextColor="gray"
+          keyboardType="email-address"
         />
         <TouchableOpacity
           style={styles.filterButton}
@@ -198,16 +198,17 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
+    borderWidth: 1,
+    justifyContent: 'space-between'
   },
   searchInput: {
     flex: 1,
     marginLeft: 12,
     fontSize: 16,
-    color: "#333",
-    fontFamily: "Roboto",
   },
   filterButton: {
     marginLeft: 12,
+    borderRadius: 20,
   },
   modalOverlay: {
     flex: 1,

@@ -8,12 +8,13 @@ import HomeScreen from "./screens/HomeScreen";
 import AccountScreen from "./screens/AccountScreen";
 import FavoriteScreen from "./screens/FavoriteScreen";
 import InboxScreen from "./screens/InboxScreen";
-import * as Icon from "react-native-feather";
 import RegisterScreen from "./screens/RegisterScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SearchScreen from "./screens/SearchScreen";
 import { Text } from "react-native-svg";
-//import Iconicon from '@react-native-vector-icons/ionicons';
+import { Ionicons } from "@expo/vector-icons";
+import ElectronicScreen from "./screens/ElectronicScreen";
+import FreshfruitScreen from "./screens/FreshfruitScreen";
 export default function Navigation() {
   return (
     <NavigationContainer>
@@ -33,6 +34,16 @@ export default function Navigation() {
           component={HomeTabs}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="ElectronicScreen"
+          component={ElectronicScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FreshfruitScreen"
+          component={FreshfruitScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -45,22 +56,21 @@ function HomeTabs() {
         tabBarIcon: ({ color, size }) => {
           switch (route.name) {
             case "Home":
-              return <Icon.Home width={size} height={size} stroke={color} />;
+              return <Ionicons name="home" size={size} color={color} />;
             case "Search":
-              return <Icon.Home width={size} height={size} stroke={color} />;
+              return <Ionicons name="search" size={size} color={color} />;
             case "Favorite":
-              return <Icon.Heart width={size} height={size} stroke={color} />;
+              return <Ionicons name="heart" size={size} color={color} />;
             case "Inbox":
-              return (
-                <Icon.MessageCircle width={size} height={size} stroke={color} />
-              );
+              return <Ionicons name="mail" size={size} color={color} />;
             case "Account":
-              return <Icon.User width={size} height={size} stroke={color} />;
+              return <Ionicons name="person" size={size} color={color} />;
             default:
               return null;
           }
         },
-        tabBarActiveTintColor: "black",
+        tabBarLabelStyle: { fontSize: 16 },
+        tabBarActiveTintColor: "blue",
         tabBarInactiveTintColor: "gray",
         tabBarShowLabel: true,
       })}
@@ -71,7 +81,7 @@ function HomeTabs() {
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="MyOrder"
+        name="Search"
         component={SearchScreen}
         options={{ headerShown: false }}
       />
