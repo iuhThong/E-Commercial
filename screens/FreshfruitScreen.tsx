@@ -14,7 +14,7 @@ import { ImageSlider } from "react-native-image-slider-banner";
 import SearchBar from "./../component/SearchBar";
 import { fruitBanner, fruitData } from "../data";
 import { Ionicons } from "@expo/vector-icons";
-import { itemRednerVertical } from "../component/renderItem";
+import ItemRenderVertical from "./../component/renderItem";
 export default function FreshfruitScreen() {
   const [seeAll, setSeeAll] = useState(false);
   return (
@@ -96,7 +96,7 @@ export default function FreshfruitScreen() {
         </View>
         <FlatList
           data={fruitData.slice(0, 2)}
-          renderItem={({ item }) => itemRednerVertical(item)}
+          renderItem={({ item }) => <ItemRenderVertical item={item} />} // Sử dụng component
           keyExtractor={(item) => item.id.toString()}
           scrollEnabled={false}
           contentContainerStyle={{ marginBottom: 20 }}

@@ -13,7 +13,7 @@ import Header from "../component/Header";
 import SearchBar from "../component/SearchBar";
 import { ImageSlider } from "react-native-image-slider-banner";
 import { electronics, electronicsBanner } from "../data";
-import { itemRednerVertical } from "../component/renderItem";
+import ItemRenderVertical from "../component/renderItem";
 
 export default function ElectronicScreen() {
   const [selectedChoice, setSelectedChoice] = useState("Best Sales");
@@ -105,15 +105,13 @@ export default function ElectronicScreen() {
         </View>
 
         {/* Hiển thị sản phẩm */}
-        <View style={styles.product}>
-          <FlatList
-            data={data} // Sử dụng data đã được lọc
-            renderItem={({ item }) => itemRednerVertical(item)} // Render item bằng hàm itemRednerVertical
-            keyExtractor={(item) => item.id.toString()}
-            scrollEnabled={true}
-            contentContainerStyle={{ marginBottom: 20 }}
-          />
-        </View>
+        <FlatList
+          data={data}
+          renderItem={({ item }) => <ItemRenderVertical item={item} />} // Sử dụng component
+          keyExtractor={(item) => item.id.toString()}
+          scrollEnabled={true}
+          contentContainerStyle={{ marginBottom: 20 }}
+        />
 
         {/* Nút See all / Show Less */}
         <TouchableOpacity style={styles.btnSeeAll} onPress={handleSeeAll}>

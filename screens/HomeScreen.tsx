@@ -21,7 +21,7 @@ export default function HomeScreen() {
         navigation.navigate("ElectronicScreen");
         break;
       case "Fresh Fruit":
-        navigation.navigate("FreshfruitScreen")
+        navigation.navigate("FreshfruitScreen");
       default:
         break;
     }

@@ -1,17 +1,21 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 
-export const itemRednerVertical = (item) => {
+const ItemRenderVertical = ({ item }) => {
+  const navigation = useNavigation(); // Lấy điều hướng
+
+  const handlePress = () => {
+    // Điều hướng và truyền dữ liệu
+    navigation.navigate("ProductDetailScreen", {
+      id: item.id,
+      type: item.type,
+    }); // Chỉ truyền `id` và `type`
+  };
+
   return (
-    <View style={styles.cart}>
+    <TouchableOpacity onPress={handlePress} style={styles.cart}>
       <View style={styles.imgBox}>
         <Image source={item.img} style={styles.img} />
       </View>
@@ -25,11 +29,14 @@ export const itemRednerVertical = (item) => {
         </TouchableOpacity>
         <Text style={styles.price}>{item.price}$</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
+export default ItemRenderVertical;
+
 const styles = StyleSheet.create({
+  // Styles giữ nguyên
   cart: {
     borderWidth: 0.5,
     borderRadius: 10,

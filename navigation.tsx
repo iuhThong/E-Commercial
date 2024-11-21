@@ -12,6 +12,7 @@ import SearchScreen from "./screens/SearchScreen";
 import { Ionicons } from "@expo/vector-icons";
 import ElectronicScreen from "./screens/ElectronicScreen";
 import FreshfruitScreen from "./screens/FreshfruitScreen";
+import ProductDetailScreen from "./screens/ProductDetailScreen";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function Navigation() {
@@ -41,6 +42,11 @@ export default function Navigation() {
         <Stack.Screen
           name="FreshfruitScreen"
           component={FreshfruitScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ProductDetailScreen"
+          component={ProductDetailScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

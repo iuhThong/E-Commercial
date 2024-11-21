@@ -24,7 +24,7 @@ export default function RegisterScreen() {
     } else {
       // Thực hiện đăng ký thành công
       Alert.alert("Thông báo", "Đăng ký thành công!");
-      navigation.navigate("Login");
+      navigation.navigate("LoginScreen");
     }
   };
 

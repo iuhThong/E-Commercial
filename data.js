@@ -133,7 +133,8 @@ export const categories = [
     price: 3,
     rating: 3,
     img: require('./assets/images/Fruit_Img/Pear.png'),
-    reviews: reviews
+    reviews: reviews,
+    type: "fruit"
   },
   {
     id: 2,
@@ -141,7 +142,8 @@ export const categories = [
     price: 4,
     rating: 3,
     img: require('./assets/images/Fruit_Img/avocado.png'),
-    reviews: reviews
+    reviews: reviews,
+    type: "fruit"
   },
   {
     id: 3,
@@ -149,7 +151,8 @@ export const categories = [
     price: 10,
     rating: 3,
     img: require('./assets/images/Fruit_Img/cherry.png'),
-    reviews: reviews
+    reviews: reviews,
+    type: "fruit"
   },
   {
     id: 4,
@@ -157,7 +160,8 @@ export const categories = [
     price: 7,
     rating: 3,
     img: require('./assets/images/Fruit_Img/Orange.png'),
-    reviews: reviews
+    reviews: reviews,
+    type: "fruit"
   }]
   
   export const electronics = [
@@ -167,8 +171,10 @@ export const categories = [
       name: "iPhone 13",
       price: 999,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "The iPhone 13 features advanced performance and camera technology, perfect for every lifestyle.",
+      reviews: reviews,
     },
     {
       id: 2,
@@ -176,8 +182,10 @@ export const categories = [
       name: "Samsung Galaxy S21",
       price: 899,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Samsung Galaxy S21 offers top-tier performance with stunning design and display.",
+      reviews: reviews,
     },
     {
       id: 3,
@@ -185,8 +193,10 @@ export const categories = [
       name: "OnePlus 9",
       price: 729,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "OnePlus 9 provides a smooth user experience and excellent camera quality at a great price.",
+      reviews: reviews,
     },
     {
       id: 4,
@@ -194,8 +204,10 @@ export const categories = [
       name: "Google Pixel 6",
       price: 699,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Google Pixel 6 brings AI-powered photography and clean Android experience to your pocket.",
+      reviews: reviews,
     },
     {
       id: 5,
@@ -203,8 +215,10 @@ export const categories = [
       name: "Xiaomi Mi 11",
       price: 649,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Popular",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Xiaomi Mi 11 delivers flagship performance with stunning design and value for money.",
+      reviews: reviews,
     },
     {
       id: 6,
@@ -212,17 +226,21 @@ export const categories = [
       name: "Sony Xperia 5 III",
       price: 899,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Matched",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Sony Xperia 5 III combines excellent camera capabilities and compact design for photography lovers.",
+      reviews: reviews,
     },
     {
-      name: "Oppo3s",
+      name: "Oppo 3S",
       price: 1200,
       category: "mobile",
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
       id: 19,
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Oppo 3S is a premium smartphone with elegant design and innovative features.",
+      reviews: reviews,
     },
     {
       id: 7,
@@ -230,8 +248,10 @@ export const categories = [
       name: "iPad Pro",
       price: 1099,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "The iPad Pro offers a powerful M1 chip for unmatched tablet performance and versatility.",
+      reviews: reviews,
     },
     {
       id: 8,
@@ -239,8 +259,10 @@ export const categories = [
       name: "iPad Air",
       price: 599,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "iPad Air balances power and portability, making it ideal for work and entertainment.",
+      reviews: reviews,
     },
     {
       id: 9,
@@ -248,8 +270,10 @@ export const categories = [
       name: "Samsung Galaxy Tab S7",
       price: 649,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Samsung Galaxy Tab S7 combines a sleek design with productivity and entertainment features.",
+      reviews: reviews,
     },
     {
       id: 10,
@@ -257,8 +281,10 @@ export const categories = [
       name: "Microsoft Surface Go 3",
       price: 399,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Microsoft Surface Go 3 is a portable tablet with versatile features for on-the-go productivity.",
+      reviews: reviews,
     },
     {
       id: 11,
@@ -266,8 +292,10 @@ export const categories = [
       name: "Lenovo Tab P11 Pro",
       price: 499,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Popular",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Lenovo Tab P11 Pro is a stylish and powerful tablet perfect for work and play.",
+      reviews: reviews,
     },
     {
       id: 12,
@@ -275,8 +303,10 @@ export const categories = [
       name: "Huawei MatePad Pro",
       price: 699,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Matched",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Huawei MatePad Pro brings advanced display technology and sleek design to tablet users.",
+      reviews: reviews,
     },
     {
       id: 13,
@@ -284,8 +314,10 @@ export const categories = [
       name: "MacBook Pro",
       price: 1299,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "MacBook Pro redefines productivity with its M1 Pro chip and stunning Liquid Retina XDR display.",
+      reviews: reviews,
     },
     {
       id: 14,
@@ -293,8 +325,10 @@ export const categories = [
       name: "Dell XPS 13",
       price: 999,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Dell XPS 13 offers a compact design, stunning display, and excellent performance.",
+      reviews: reviews,
     },
     {
       id: 15,
@@ -302,8 +336,10 @@ export const categories = [
       name: "HP Spectre x360",
       price: 1199,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "HP Spectre x360 is a premium convertible laptop with style and high-end performance.",
+      reviews: reviews,
     },
     {
       id: 16,
@@ -311,8 +347,10 @@ export const categories = [
       name: "Lenovo ThinkPad X1 Carbon",
       price: 1299,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Sales",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Lenovo ThinkPad X1 Carbon combines lightweight design with professional-grade performance.",
+      reviews: reviews,
     },
     {
       id: 17,
@@ -320,8 +358,10 @@ export const categories = [
       name: "Microsoft Surface Laptop 4",
       price: 999,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Best Matched",
-      rating: 4
+      rating: 4,
+      type: "electronic",
+      description: "Microsoft Surface Laptop 4 offers a sleek design and impressive battery life for professionals.",
+      reviews: reviews,
     },
     {
       id: 18,
@@ -329,8 +369,11 @@ export const categories = [
       name: "Asus ZenBook 13",
       price: 899,
       img: require('./assets/images/Fruit_Img/Pear.png'),
-      type: "Popular",
-      rating: 4
-    }
+      rating: 4,
+      type: "electronic",
+      description: "Asus ZenBook 13 is a compact and lightweight laptop with excellent performance and battery life.",
+      reviews: reviews,
+    },
   ];
+  
   
