@@ -7,10 +7,10 @@ import {
   Modal,
   Text,
   ScrollView,
-  Pressable,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Slider from "@react-native-community/slider";
+import { Checkbox } from "react-native-paper";
 
 const SearchBar = () => {
   const [filterVisible, setFilterVisible] = useState(false);
@@ -39,14 +39,6 @@ const SearchBar = () => {
     }));
   };
 
-  // Custom toggle component with full square color change
-  const CustomToggle = ({ isSelected, onPress }) => (
-    <Pressable
-      onPress={onPress}
-      style={[styles.squareToggle, isSelected && styles.selectedSquareToggle]}
-    />
-  );
-
   return (
     <View>
       {/* Search bar */}
@@ -55,7 +47,7 @@ const SearchBar = () => {
         <TextInput
           style={styles.searchInput}
           placeholder="Search for product"
-          keyboardType="email-address"
+          keyboardType="default"
         />
         <TouchableOpacity
           style={styles.filterButton}
@@ -74,6 +66,7 @@ const SearchBar = () => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
+            {/* Header */}
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>Filter</Text>
               <TouchableOpacity onPress={() => setFilterVisible(false)}>
@@ -89,12 +82,17 @@ const SearchBar = () => {
                 "Express (2 days delivery)",
                 "Standard (7-10 days delivery)",
               ].map((option) => (
-                <View key={option} style={styles.toggleContainer}>
-                  <CustomToggle
-                    isSelected={selectedShippingOptions.includes(option)}
+                <View key={option} style={styles.checkboxContainer}>
+                  <Checkbox
+                    status={
+                      selectedShippingOptions.includes(option)
+                        ? "checked"
+                        : "unchecked"
+                    }
                     onPress={() => toggleShippingOption(option)}
+                    color="#007AFF"
                   />
-                  <Text style={styles.toggleLabel}>{option}</Text>
+                  <Text style={styles.checkboxLabel}>{option}</Text>
                 </View>
               ))}
 
@@ -171,6 +169,7 @@ const SearchBar = () => {
               ))}
             </ScrollView>
 
+            {/* Apply Button */}
             <TouchableOpacity
               style={styles.applyButton}
               onPress={() => setFilterVisible(false)}
@@ -191,15 +190,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5f5f5",
     borderRadius: 25,
     paddingHorizontal: 15,
-    paddingVertical: 12,
-    marginHorizontal: 20,
-    marginVertical: 10,
+    paddingVertical: 10,
+    margin: 15,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.1,
     shadowRadius: 5,
     borderWidth: 1,
-    justifyContent: 'space-between'
+    borderColor: "#ccc",
   },
   searchInput: {
     flex: 1,
@@ -207,91 +205,71 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   filterButton: {
-    marginLeft: 12,
-    borderRadius: 20,
+    padding: 5,
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
     justifyContent: "center",
     alignItems: "center",
   },
   modalContent: {
-    width: "85%",
+    width: "90%",
     backgroundColor: "#fff",
-    borderRadius: 20,
+    borderRadius: 15,
     padding: 20,
-    maxHeight: "85%",
-    elevation: 5,
+    maxHeight: "90%",
   },
   modalHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 20,
   },
   modalTitle: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
-    color: "#333",
-  },
-  filterOptions: {
-    marginTop: 8,
   },
   sectionTitle: {
     fontSize: 16,
-    fontWeight: "600",
-    marginTop: 20,
-    marginBottom: 8,
-    color: "#333",
+    fontWeight: "bold",
+    marginTop: 15,
   },
-  toggleContainer: {
+  checkboxContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 10,
+    marginVertical: 8,
   },
-  toggleLabel: {
-    marginLeft: 10,
+  checkboxLabel: {
     fontSize: 14,
-    color: "#555",
-  },
-  squareToggle: {
-    width: 24,
-    height: 24,
-    backgroundColor: "transparent", // Start as transparent
-    marginRight: 10,
-  },
-  selectedSquareToggle: {
-    backgroundColor: "#007AFF", // Full green when selected
+    marginLeft: 10,
   },
   priceInputContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 8,
+    marginTop: 10,
   },
   priceText: {
-    fontSize: 16,
-    color: "#333",
+    fontSize: 14,
+    fontWeight: "bold",
   },
   slider: {
     flex: 1,
-    marginHorizontal: 8,
+    marginHorizontal: 10,
   },
   reviewContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 12,
+    marginTop: 10,
   },
   reviewLabel: {
     marginLeft: 8,
     fontSize: 14,
-    color: "#555",
   },
   otherOption: {
     padding: 12,
-    marginVertical: 4,
-    borderRadius: 12,
+    marginVertical: 5,
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: "#ccc",
     alignItems: "center",
@@ -301,15 +279,15 @@ const styles = StyleSheet.create({
     borderColor: "#007AFF",
   },
   unselectedText: {
-    color: "#555",
+    color: "#333",
   },
   selectedText: {
     color: "#007AFF",
   },
   applyButton: {
     backgroundColor: "#007AFF",
-    borderRadius: 15,
-    paddingVertical: 14,
+    borderRadius: 10,
+    paddingVertical: 12,
     alignItems: "center",
     marginTop: 20,
   },

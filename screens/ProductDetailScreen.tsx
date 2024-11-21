@@ -12,6 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../component/Header";
 import { electronics, fruitData } from "../data";
 import { Ionicons } from "@expo/vector-icons";
+import { Checkbox } from "react-native-paper";
 
 export default function ProductDetailScreen({ route }) {
   const { id, type } = route.params;
