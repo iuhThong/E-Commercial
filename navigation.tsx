@@ -13,6 +13,10 @@ import { Ionicons } from "@expo/vector-icons";
 import ElectronicScreen from "./screens/ElectronicScreen";
 import FreshfruitScreen from "./screens/FreshfruitScreen";
 import ProductDetailScreen from "./screens/ProductDetailScreen";
+import CheckoutScreen from "./screens/CheckoutScreen";
+import PaymentScreen from "./screens/PaymentScreen";
+import PaymentSuccess from "./screens/PaymentSuccessScreen";
+import ModalFeedBackScreen from "./screens/ModalFeedBackScreen";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function Navigation() {
@@ -47,6 +51,26 @@ export default function Navigation() {
         <Stack.Screen
           name="ProductDetailScreen"
           component={ProductDetailScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CheckoutScreen"
+          component={CheckoutScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PaymentScreen"
+          component={PaymentScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PaymentSuccessScreen"
+          component={PaymentSuccess}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ModalFeedBackScreen"
+          component={ModalFeedBackScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

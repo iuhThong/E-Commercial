@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "SubProjet_FoodDeliveryApp_Mobile_TT",
-    "slug": "SubProjet_FoodDeliveryApp_Mobile_TT",
+    "name": "SubProject",
+    "slug": "SubProject",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

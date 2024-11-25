@@ -13,8 +13,10 @@ import Header from "../component/Header";
 import { electronics, fruitData } from "../data";
 import { Ionicons } from "@expo/vector-icons";
 import { Checkbox } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ProductDetailScreen({ route }) {
+  const navigation = useNavigation();
   const { id, type } = route.params;
   const [showAllReviews, setShowAllReviews] = useState(false);
   let item;
@@ -29,6 +31,9 @@ export default function ProductDetailScreen({ route }) {
       break;
     default:
       break;
+  }
+  function handleBuyNow() {
+    navigation.navigate("CheckoutScreen");
   }
 
   return (
@@ -103,7 +108,7 @@ export default function ProductDetailScreen({ route }) {
         <TouchableOpacity style={styles.cartButton}>
           <Ionicons name="cart-outline" size={24} color="#2196F3" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buyButton}>
+        <TouchableOpacity style={styles.buyButton} onPress={handleBuyNow}>
           <Text style={styles.buyButtonText}>Buy Now</Text>
         </TouchableOpacity>
       </View>
