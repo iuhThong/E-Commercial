@@ -11,7 +11,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "./../component/Header";
 import SearchBar from "../component/SearchBar";
-import { categories, products } from "./../data";
+import { categories, electronics } from "./../data";
 import { useNavigation } from "@react-navigation/native";
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -21,7 +21,14 @@ export default function HomeScreen() {
         navigation.navigate("ElectronicScreen");
         break;
       case "Fresh Fruit":
-        navigation.navigate("FreshfruitScreen");
+        navigation.navigate("FreshfruitScreen", { type: "fruit" });
+        break;
+      case "Beauty":
+        navigation.navigate("FreshfruitScreen", { type: "Beauty" });
+        break;
+      case "Fashion":
+        navigation.navigate("FreshfruitScreen", { type: "Fashion" });
+        break;
       default:
         break;
     }
@@ -30,7 +37,7 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scroll}>
         <Header name={"All deals"} />
-        <SearchBar />
+        <SearchBar onSearch={""} />
         <View style={styles.container1}>
           <FlatList
             data={categories}
@@ -79,7 +86,7 @@ export default function HomeScreen() {
               marginVertical: 15,
             }}
           >
-            <Text style={{ fontSize: 24, fontWeight: "bold" }}>
+            {/* <Text style={{ fontSize: 24, fontWeight: "bold" }}>
               Recommended for you
             </Text>
             <TouchableOpacity>
@@ -88,9 +95,9 @@ export default function HomeScreen() {
               >
                 See all
               </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
-          <FlatList
+          {/* <FlatList
             style={{ height: 10 }}
             data={products}
             renderItem={({ item }) => {
@@ -98,16 +105,21 @@ export default function HomeScreen() {
                 <View style={styles.productCard}>
                   <Image style={styles.productImage} source={item.img} />
                   <Text style={styles.productName}>{item.productName}</Text>
-                  <Text style={styles.productRating}>⭐ {item.rating}</Text>
-                  <Text style={styles.productPrice}>
-                    ${item.price.toFixed(2)}
-                  </Text>
+                  <View
+                    style={{ justifyContent: "space-between", height: "auto" }}
+                  >
+                    <Text style={styles.productRating}>⭐ {item.rating}</Text>
+                    <Text style={styles.productPrice}>
+                      ${item.price.toFixed(2)}
+                    </Text>
+                  </View>
                 </View>
               );
             }}
+            scrollEnabled={true}
             horizontal
             keyExtractor={(item) => item.id.toString()}
-          />
+          /> */}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -118,7 +130,7 @@ const styles = StyleSheet.create({
     padding: 15,
     flex: 1,
   },
-  scroll: {},
+  scroll: { flexShrink: 1 },
   container1: {
     width: "100%",
     alignItems: "center",
@@ -153,7 +165,6 @@ const styles = StyleSheet.create({
   productCard: {
     margin: 10,
     padding: 10,
-    backgroundColor: "#fff",
     borderRadius: 10,
     alignItems: "center",
     width: 150,
@@ -164,9 +175,9 @@ const styles = StyleSheet.create({
     elevation: 5, // Tạo bóng cho card (Android)
   },
   productImage: {
-    width: 200,
-    height: 100,
-    resizeMode: "contain",
+    width: 300,
+    height: 150,
+    resizeMode: "cover",
     marginBottom: 10,
   },
   productName: {

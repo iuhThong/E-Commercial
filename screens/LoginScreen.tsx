@@ -18,21 +18,17 @@ export default function LoginScreen() {
   const [password, setPassword] = useState("");
 
   function handleLogin() {
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "HomeTabs" }],
-    });
     // Uncomment and customize authentication logic here:
-    // const taiKhoan = "thong";
-    // const mk = "123";
-    // if (username === taiKhoan && password === mk) {
-    //   navigation.reset({
-    //     index: 0,
-    //     routes: [{ name: "HomeTabs" }],
-    //   });
-    // } else {
-    //   Alert.alert("Thông báo", "Tên đăng nhập hoặc mật khẩu không đúng.");
-    // }
+    const taiKhoan = "thong";
+    const mk = "123";
+    if (username === taiKhoan && password === mk) {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "HomeTabs" }],
+      });
+    } else {
+      Alert.alert("Thông báo", "Tên đăng nhập hoặc mật khẩu không đúng.");
+    }
   }
 
   const handleRegister = () => {

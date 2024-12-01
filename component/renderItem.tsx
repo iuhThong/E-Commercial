@@ -8,10 +8,10 @@ const ItemRenderVertical = ({ item }) => {
 
   const handlePress = () => {
     // Điều hướng và truyền dữ liệu
+    console.log(item.id);
     navigation.navigate("ProductDetailScreen", {
       id: item.id,
-      type: item.type,
-    }); // Chỉ truyền `id` và `type`
+    }); // Chỉ truyền `id` và `type`\
   };
 
   return (

@@ -12,10 +12,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../component/Header";
 import SearchBar from "../component/SearchBar";
 import { ImageSlider } from "react-native-image-slider-banner";
-import { electronics, electronicsBanner } from "../data";
+import { products, electronicsBanner } from "../data";
 import ItemRenderVertical from "../component/renderItem";
 
-export default function ElectronicScreen() {
+export default function ElectronicScreen({ route }) {
   const [selectedChoice, setSelectedChoice] = useState("Best Sales");
   const [seeAll, setSeeAll] = useState(false);
 
@@ -30,7 +30,10 @@ export default function ElectronicScreen() {
   }
 
   // Dữ liệu sẽ được hiển thị, tùy thuộc vào giá trị của `seeAll`
-  const data = seeAll ? electronics : electronics.slice(0, 4);
+  const tmp = products.filter(
+    (item) => item.subBanner === selectedChoice && item.type === "electronic"
+  );
+  const data = seeAll ? tmp : tmp.slice(0, 4);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -163,7 +166,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 20,
+    marginVertical: 20,
     justifyContent: "space-around",
   },
   touchChoice: {

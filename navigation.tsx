@@ -26,12 +26,12 @@ export default function Navigation() {
         <Stack.Screen
           name="LoginScreen"
           component={LoginScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, headerTitle: "xin chao" }}
         />
         <Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: true }}
         />
         <Stack.Screen
           name="HomeTabs"

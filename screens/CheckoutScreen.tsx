@@ -93,7 +93,14 @@ export default function Checkout({ route }) {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton}>
-          <Ionicons name="chevron-back-outline" size={24} color="black" />
+          <Ionicons
+            name="chevron-back-outline"
+            size={24}
+            color="black"
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Checkout</Text>
       </View>

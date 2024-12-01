@@ -44,6 +44,14 @@ const PaymentSuccessScreen = ({ navigation }) => {
           </View>
         </View>
 
+        {/* Back to Home Button */}
+        <TouchableOpacity
+          style={styles.homeButton}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Text style={styles.homeButtonText}>Back to Home</Text>
+        </TouchableOpacity>
+
         <ModalFeedBackScreen
           visible={modalVisible}
           onClose={() => setModalVisible(false)}
@@ -89,6 +97,18 @@ const styles = StyleSheet.create({
   },
   ratingContainer: {
     flexDirection: "row",
+  },
+  homeButton: {
+    marginTop: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: "#007BFF",
+    borderRadius: 5,
+  },
+  homeButtonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 

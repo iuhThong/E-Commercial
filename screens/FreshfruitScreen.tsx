@@ -12,11 +12,37 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../component/Header";
 import { ImageSlider } from "react-native-image-slider-banner";
 import SearchBar from "./../component/SearchBar";
-import { fruitBanner, fruitData } from "../data";
+import { fruitBanner, products } from "../data";
 import { Ionicons } from "@expo/vector-icons";
 import ItemRenderVertical from "./../component/renderItem";
-export default function FreshfruitScreen() {
+import { useNavigation } from "@react-navigation/native";
+export default function FreshfruitScreen({ route }) {
+  const navigation = useNavigation();
+  const { type } = route.params;
+  console.log(type);
   const [seeAll, setSeeAll] = useState(false);
+  let dataTmp = [];
+  switch (type) {
+    case "Fashion":
+      dataTmp = products.filter((item) => item.type === "Fashion");
+      break;
+    case "Beauty":
+      dataTmp = products.filter((item) => item.type === "Beauty");
+      break;
+    case "fruit":
+      dataTmp = products.filter((item) => item.type === "fruit");
+      break;
+    default:
+      dataTmp = []; // Trường hợp không có type hợp lệ
+      break;
+  }
+  const data = seeAll ? dataTmp : dataTmp.slice(0, 4);
+  // const handlePress = () => {
+  //   console.log(item.id);
+  //   navigation.navigate("ProductDetailScreen", {
+  //     id: item.id,
+  //   });
+  // };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{ padding: 15 }}>
@@ -35,10 +61,17 @@ export default function FreshfruitScreen() {
           />
         </View>
         <FlatList
-          data={fruitData}
+          data={data}
           renderItem={({ item }) => {
             return (
-              <TouchableOpacity style={styles.cardContainer}>
+              <TouchableOpacity
+                style={styles.cardContainer}
+                onPress={() => {
+                  navigation.navigate("ProductDetailScreen", {
+                    id: item.id,
+                  });
+                }}
+              >
                 <Image source={item.img} style={styles.imgCard} />
                 <View style={styles.contentCard}>
                   <Text
@@ -76,7 +109,9 @@ export default function FreshfruitScreen() {
             setSeeAll(!seeAll);
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: "medium" }}>See all</Text>
+          <Text style={{ fontSize: 20, fontWeight: "medium" }}>
+            {seeAll ? "Show Less" : "See All"}
+          </Text>
         </TouchableOpacity>
         <View
           style={{
@@ -95,7 +130,7 @@ export default function FreshfruitScreen() {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={fruitData.slice(0, 2)}
+          data={data.slice(0, 2)}
           renderItem={({ item }) => <ItemRenderVertical item={item} />} // Sử dụng component
           keyExtractor={(item) => item.id.toString()}
           scrollEnabled={false}

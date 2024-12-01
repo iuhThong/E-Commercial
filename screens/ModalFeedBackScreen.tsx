@@ -62,12 +62,12 @@ const ModalFeedBackScreen = ({ visible, onClose, navigation }) => {
           </TouchableOpacity>
 
           <Text style={styles.title}>Feedback</Text>
-
+{/* 
           <View style={styles.emoticonContainer}>
             <Ionicons name="sad-outline" size={32} color="gray" />
             <Ionicons name="remove-outline" size={32} color="gray" />
             <Ionicons name="happy-outline" size={32} color="blue" />
-          </View>
+          </View> */}
 
           {/* Reason selection (buttons) */}
           <ScrollView horizontal style={styles.reasonsContainer}>

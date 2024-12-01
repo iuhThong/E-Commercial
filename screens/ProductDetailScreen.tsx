@@ -10,28 +10,19 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../component/Header";
-import { electronics, fruitData } from "../data";
+import { products } from "../data";
 import { Ionicons } from "@expo/vector-icons";
 import { Checkbox } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
 export default function ProductDetailScreen({ route }) {
   const navigation = useNavigation();
-  const { id, type } = route.params;
+  const { id } = route.params;
   const [showAllReviews, setShowAllReviews] = useState(false);
   let item;
 
   // Lấy thông tin sản phẩm dựa trên ID và type
-  switch (type) {
-    case "electronic":
-      item = electronics.find((product) => product.id === id);
-      break;
-    case "fruit":
-      item = fruitData.find((product) => product.id === id);
-      break;
-    default:
-      break;
-  }
+  item = products.find((product) => product.id === id);
   function handleBuyNow() {
     navigation.navigate("CheckoutScreen");
   }
