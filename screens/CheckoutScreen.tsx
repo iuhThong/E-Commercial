@@ -33,6 +33,8 @@ const CartItem = ({ item }) => (
 export default function Checkout({ route }) {
   const [voucher, setVoucher] = useState("");
   const [isApplyEnabled, setIsApplyEnabled] = useState(false);
+  const [discount, setDiscount] = useState(0); // Lưu trữ giá trị giảm giá
+  const [errorMessage, setErrorMessage] = useState("");
   const navigation = useNavigation();
 
   // Sample cart data with online images
@@ -75,16 +77,30 @@ export default function Checkout({ route }) {
     },
   ];
 
+  const totalAmount = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  ); // Tính tổng số tiền
+
+  // Hàm thay đổi voucher
   const handleVoucherChange = (text) => {
     setVoucher(text);
     setIsApplyEnabled(text.length > 0);
   };
 
+  // Hàm xử lý khi nhấn "Apply"
   const handleApplyVoucher = () => {
-    // Add voucher application logic here
-    console.log("Applying voucher:", voucher);
+    // Giả lập mã giảm giá hợp lệ "DISCOUNT10"
+    if (voucher === "DISCOUNT10") {
+      setDiscount(totalAmount * 0.1); // Giảm 10% tổng tiền
+      setErrorMessage("");
+    } else {
+      setDiscount(0); // Không giảm giá
+      setErrorMessage("Invalid discount code"); // Thông báo lỗi
+    }
   };
 
+  // Hàm tiếp theo
   const handleNextPress = () => {
     navigation.navigate("PaymentScreen");
   };
@@ -113,6 +129,7 @@ export default function Checkout({ route }) {
           scrollEnabled={false}
         />
 
+        {/* Phần voucher */}
         <View style={styles.voucherSection}>
           <Text style={styles.voucherLabel}>Voucher</Text>
           <View style={styles.voucherInputContainer}>
@@ -141,14 +158,25 @@ export default function Checkout({ route }) {
               </Text>
             </TouchableOpacity>
           </View>
+          {errorMessage ? (
+            <Text style={styles.errorMessage}>{errorMessage}</Text>
+          ) : (
+            <Text style={styles.discountText}>
+              Discount applied: ${discount}
+            </Text>
+          )}
         </View>
 
+        {/* Phần tổng tiền */}
         <View style={styles.totalSection}>
           <Text style={styles.totalLabel}>TOTAL</Text>
-          <Text style={styles.totalAmount}>$2,800</Text>
+          <Text style={styles.totalAmount}>
+            ${(totalAmount - discount).toFixed(2)}
+          </Text>
         </View>
       </ScrollView>
 
+      {/* Button Next */}
       <TouchableOpacity style={styles.nextButton} onPress={handleNextPress}>
         <Text style={styles.nextButtonText}>Next</Text>
         <Ionicons name="chevron-forward-outline" size={24} color="white" />
@@ -240,6 +268,16 @@ const styles = StyleSheet.create({
   applyButtonText: {
     fontSize: 16,
     fontWeight: "500",
+  },
+  discountText: {
+    fontSize: 16,
+    color: "green",
+    marginTop: 8,
+  },
+  errorMessage: {
+    fontSize: 16,
+    color: "red",
+    marginTop: 8,
   },
   totalSection: {
     flexDirection: "row",

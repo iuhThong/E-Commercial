@@ -446,7 +446,7 @@ export const categories = [
       price: 7,
       rating: 3,
       img: require('./assets/images/Beauty_Img/KCN.png'),
-      description: "Fruit",
+      description: "Beauty",
       reviews: reviews,
       type: "Beauty"
     },
@@ -456,18 +456,98 @@ export const categories = [
       price: 7,
       rating: 3,
       img: require('./assets/images/Beauty_Img/serum.png'),
-      description: "Fruit",
+      description: "Beauty",
       reviews: reviews,
       type: "Beauty"
     },
     {
-      id: 35,
+      id: 36,
       name: 'Toner',
       price: 7,
       rating: 3,
       img: require('./assets/images/Beauty_Img/toner.png'),
-      description: "Fruit",
+      description: "Beauty",
       reviews: reviews,
       type: "Beauty"
+    },
+    {
+      id: 37,
+      name: 'Jordan 1 Smoke Gray',
+      price: 7,
+      rating: 3,
+      img: require('./assets/images/Fashion_Img/Jd1.png'),
+      description: "Fashion",
+      reviews: reviews,
+      type: "Fashion"
+    },
+    {
+      id: 38,
+      name: 'Jordan 1',
+      price: 7,
+      rating: 3,
+      img: require('./assets/images/Fashion_Img/Jd2.png'),
+      description: "Fashion",
+      reviews: reviews,
+      type: "Fashion"
+    },
+    {
+      id: 39,
+      name: 'LV bag ',
+      price: 7,
+      rating: 3,
+      img: require('./assets/images/Fashion_Img/bagLV.png'),
+      description: "Fashion",
+      reviews: reviews,
+      type: "Fashion"
+    },
+    {
+      id: 40,
+      name: 'LV T-shirt',
+      price: 7,
+      rating: 3,
+      img: require('./assets/images/Fashion_Img/aoLV.png'),
+      description: "Fashion",
+      reviews: reviews,
+      type: "Fashion"
+    },
+    {
+      id: 41,
+      name: 'Supre Jacket',
+      price: 7,
+      rating: 3,
+      img: require('./assets/images/Fashion_Img/aoKhoacSup.png'),
+      description: "Fashion",
+      reviews: reviews,
+      type: "Fashion"
+    },
+    {
+      id: 43,
+      name: 'Nike pant',
+      price: 150,
+      rating: 3,
+      img: require('./assets/images/Fashion_Img/quanJogger.png'),
+      description: "Fashion",
+      reviews: reviews,
+      type: "Fashion"
+    },
+    {
+      id: 44,
+      name: 'Jordan shoe',
+      price: 100,
+      rating: 3,
+      img: require('./assets/images/Fashion_Img/Jd3.png'),
+      description: "Fashion",
+      reviews: reviews,
+      type: "Fashion"
+    },
+    {
+      id: 45,
+      name: 'AF1',
+      price: 80,
+      rating: 3,
+      img: require('./assets/images/Fashion_Img/Jd4.png'),
+      description: "Fashion",
+      reviews: reviews,
+      type: "Fashion"
     },
   ]

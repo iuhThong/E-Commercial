@@ -101,7 +101,7 @@ export default function Payment({ route }) {
 
       <View style={styles.totalSection}>
         <Text style={styles.totalLabel}>TOTAL</Text>
-        <Text style={styles.totalAmount}>$3,080</Text>
+        <Text style={styles.totalAmount}>$2520.00</Text>
       </View>
 
       <View style={styles.paymentMethodsContainer}>
